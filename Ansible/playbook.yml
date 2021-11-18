@@ -10,7 +10,7 @@
       file: path=/khursik/ state=directory
     - name: copy jar
       copy:
-        src: './../java/target/{{ jar }}'
+        src: './../target/{{ jar }}'
         dest: '/khursik/{{ jar }}'
         mode: '0755'
     - name: run jar
