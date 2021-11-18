@@ -31,9 +31,14 @@ node {
                 results: [[path: 'target/allure-results']]
             ])
     }
-    stage('deploy') {
+    stage('Ansible') {
+            ansiblePlaybook(vaultCredentialsId: 'json-card-reader',
+                            inventory: 'Ansible/servers.hosts',
+                            playbook: 'Ansible/playbook.yml')
+        }
+/*     stage('deploy') {
         withCredentials([file(credentialsId: 'json-card-reader', variable: 'VAULT_PASSWORD')]) {
             sh 'ansible-playbook Ansible/playbook.yml --vault-password-file $VAULT_PASSWORD -i Ansible/servers.hosts'
         }
-    }
+    } */
 }
