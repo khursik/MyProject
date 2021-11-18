@@ -1,0 +1,17 @@
+---
+- hosts: all
+  become: yes
+  vars_files:
+    - ./server_vars.yml
+  vars:
+    jar: 'java-1.0-SNAPSHOT.jar'
+  tasks:
+    - name: dir exists
+      file: path=/khursik/ state=directory
+    - name: copy jar
+      copy:
+        src: './../java/target/{{ jar }}'
+        dest: '/khursik/{{ jar }}'
+        mode: '0755'
+    - name: run jar
+      shell: java -jar /khursik/{{ jar }} > /khursik/result.txt

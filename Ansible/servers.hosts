@@ -1,0 +1,4 @@
+debian ansible_host={{host}}
+ansible_user={{user}}
+ansible_ssh_pass={{pass}}
+ansible_sudo_pass={{pass}}
