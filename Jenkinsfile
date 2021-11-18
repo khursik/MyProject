@@ -32,7 +32,7 @@ node {
             ])
     }
     stage('deploy') {
-        withCredentials([file(credentialsId: 'aazhogov_ansible_pass', variable: 'VAULT_PASSWORD')]) {
+        withCredentials([file(credentialsId: 'json-card-reader', variable: 'VAULT_PASSWORD')]) {
             sh 'ansible-playbook Ansible/playbook.yml --vault-password-file $VAULT_PASSWORD -i Ansible/servers.hosts'
         }
     }
