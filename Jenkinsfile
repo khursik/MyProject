@@ -1,6 +1,6 @@
 node {
     stage('git clone') {
-        git branch: 'main',
+        git branch: 'master',
             url: 'https://github.com/khursik/MyProject/'
 
     }
